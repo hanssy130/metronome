@@ -13,7 +13,7 @@
     </button>
 
     <div class="tempo-controls">
-        <button class="tempo-change" data-change="-5">-5</button>
+        <button class="tempo-change" data-change="-4">-4</button>
         <button class="tempo-change" data-change="-1">-</button>
 
         <div class="tempo-container">
@@ -22,13 +22,41 @@
         </div>
 
         <button class="tempo-change" data-change="+1">+</button>
-        <button class="tempo-change" data-change="+5">+5</button>
+        <button class="tempo-change" data-change="+4">+4</button>
     </div>
+    <br>
+    <input id="tempo-input">
+    <br>
+    <button id="tempo-input-button">Set</button>
 
     <div class="created-by">
-        Created by <a href="https://grantjam.es" target="_blank">Grant James</a>
+        Created by <a href="https://grantjam.es" target="_blank">Grant James</a><br>
+        Edited by <a href="https://github.com/hanssy130" target="_blank">Hans Sy</a>
     </div>
 
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCL_sLLC1TzQRyv1RmbiJrthZ4eJjxvTc",
+            authDomain: "thrivemetronome.firebaseapp.com",
+            projectId: "thrivemetronome",
+            storageBucket: "thrivemetronome.appspot.com",
+            messagingSenderId: "963127805966",
+            appId: "1:963127805966:web:cfc9e023d5d9265d79545f",
+            measurementId: "G-HYJS8TEJGL"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
     <script src="metronome.js"></script>
     <script src="app.js"></script>
 </body>
