@@ -63,6 +63,13 @@ class Metronome {
     }
 
     this.isRunning = true
+    try {
+      db.collection("tempo").doc("currentTempo").update({
+        isRunning: true,
+      })
+    } catch (e) {
+      console.error("Error updating document: ", e)
+    }
 
     this.currentQuarterNote = 0
     this.nextNoteTime = this.audioContext.currentTime + 0.05
@@ -72,7 +79,13 @@ class Metronome {
 
   stop() {
     this.isRunning = false
-
+    try {
+      db.collection("tempo").doc("currentTempo").update({
+        isRunning: false,
+      })
+    } catch (e) {
+      console.error("Error updating document: ", e)
+    }
     clearInterval(this.intervalID)
   }
 
