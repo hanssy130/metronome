@@ -1,5 +1,5 @@
 class Metronome {
-  constructor(tempo = 120) {
+  constructor(tempo, isRunning) {
     this.audioContext = null
     this.notesInQueue = [] // notes that have been put into the web audio and may or may not have been played yet {note, time}
     this.currentQuarterNote = 0
@@ -7,7 +7,7 @@ class Metronome {
     this.lookahead = 25 // How frequently to call scheduling function (in milliseconds)
     this.scheduleAheadTime = 0.1 // How far ahead to schedule audio (sec)
     this.nextNoteTime = 0.0 // when the next note is due
-    this.isRunning = false
+    this.isRunning = isRunning
     this.intervalID = null
   }
 
@@ -55,7 +55,7 @@ class Metronome {
   }
 
   start() {
-    if (this.isRunning) return
+    // if (this.isRunning) return
 
     if (this.audioContext == null) {
       this.audioContext = new (window.AudioContext ||
