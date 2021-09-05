@@ -96,4 +96,10 @@ class Metronome {
       this.start()
     }
   }
+
+  test = functions.firestore
+    .document("tempo/currentTempo")
+    .onUpdate((snap, context) => {
+      console.log(snap.data())
+    })
 }

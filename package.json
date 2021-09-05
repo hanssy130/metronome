@@ -1,0 +1,21 @@
+{
+  "name": "metronome2",
+  "version": "1.0.0",
+  "description": "A simple metronome written using Javascript and the Web Audio API.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanssy130/metronome.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanssy130/metronome/issues"
+  },
+  "homepage": "https://github.com/hanssy130/metronome#readme"
+}
