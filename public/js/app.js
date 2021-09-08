@@ -83,3 +83,31 @@ function updateTempo(tempo) {
     console.error("Error updating document: ", e)
   }
 }
+
+db.collection("tempo")
+  .doc("currentTempo")
+  .onSnapshot(
+    {
+      // Listen for document metadata changes
+      includeMetadataChanges: true,
+    },
+    (doc) => {
+      console.log(doc.data())
+      if (metronome.tempo != doc.data().currentTempo) {
+        metronome.tempo = doc.data().currentTempo
+        tempo.textContent = metronome.tempo
+        console.log("updated tempo")
+      }
+      if (metronome.isRunning != doc.data().isRunning) {
+        metronome.isRunning = doc.data().isRunning
+        if (metronome.isRunning) {
+          playPauseIcon.className = "pause"
+          metronome.start()
+        } else {
+          playPauseIcon.className = "play"
+          metronome.stop()
+        }
+        console.log("updated running")
+      }
+    }
+  )
