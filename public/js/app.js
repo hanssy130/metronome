@@ -19,6 +19,8 @@ var docRef = db.collection("tempo").doc("currentTempo")
 var docTempo
 var docIsRunning
 var metronome
+var playPauseIcon = document.getElementById("play-pause-icon")
+var playButton = document.getElementById("play-button")
 
 docRef
   .get()
@@ -35,10 +37,7 @@ docRef
       // Unable to initiate sound automatically. Chrome banned it.
       // https://stackoverflow.com/questions/50281568/audiocontext-not-allowed-to-start-in-tonejs-chrome
       // big sadge
-      var playPauseIcon = document.getElementById("play-pause-icon")
-      playPauseIcon.className = metronome.isRunning ? "play" : "pause"
-
-      var playButton = document.getElementById("play-button")
+      playPauseIcon.className = metronome.isRunning ? "play" : "pause"      
       playButton.addEventListener("click", function () {
         metronome.startStop()
 
